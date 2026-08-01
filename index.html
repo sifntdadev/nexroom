@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexroom · placeholder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #e8e8e8;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .nex-card {
+      background: #151515;
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      width: 100%;
+      max-width: 720px;
+      transition: box-shadow 0.2s ease;
+      border: 1px solid #2a2a2a;
+    }
+
+    .nex-card:hover {
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: #1f1f1f;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #333;
+      color: #ccc;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .brand-name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #f0f0f0;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-sub {
+      margin-left: auto;
+      font-size: 0.7rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #5a5a5a;
+      background: #1e1e1e;
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      border: 1px solid #2c2c2c;
+      -webkit-text-fill-color: #7a7a7a;
+    }
+
+    .hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: #f5f5f5;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(145deg, #ffffff, #a0a0a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: #8f8f8f;
+      font-weight: 400;
+      font-size: 1rem;
+      border-left: 2px solid #2a2a2a;
+      padding-left: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .btn {
+      flex: 1 0 auto;
+      min-width: 120px;
+      background: #1d1d1d;
+      border: 1px solid #2e2e2e;
+      color: #d4d4d4;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.2rem;
+      border-radius: 60px;
+      cursor: default;
+      transition: all 0.15s ease;
+      text-align: center;
+      letter-spacing: 0.01em;
+      background: #1a1a1a;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-primary {
+      background: #2a2a2a;
+      border-color: #3d3d3d;
+      color: #f0f0f0;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-primary:hover {
+      background: #323232;
+      border-color: #4f4f4f;
+      transform: scale(1.01);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: #2c2c2c;
+      color: #b0b0b0;
+    }
+
+    .btn-outline:hover {
+      background: #1f1f1f;
+      border-color: #3f3f3f;
+      color: #d0d0d0;
+    }
+
+    .btn-ghost {
+      background: #121212;
+      border-color: #222;
+      color: #888;
+    }
+
+    .btn-ghost:hover {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #aaa;
+    }
+
+    .btn-block {
+      flex: 1 0 100%;
+    }
+
+    .divider {
+      margin: 1.8rem 0 1rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
+    }
+
+    .footer-note {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #4f4f4f;
+      letter-spacing: 0.02em;
+      padding-top: 0.5rem;
+      border-top: 1px solid #1e1e1e;
+      margin-top: 0.8rem;
+    }
+
+    .footer-note span {
+      color: #5a5a5a;
+    }
+
+    .footer-note .copy {
+      font-weight: 400;
+      color: #3d3d3d;
+    }
+
+    .footer-note .nex {
+      font-weight: 500;
+      color: #7a7a7a;
+    }
+
+    .app-footer {
+      flex-shrink: 0;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      background: #0a0a0a;
+      border-top: 1px solid #181818;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app-footer .footer-inner {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      color: #3f3f3f;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    .app-footer .footer-inner .nexroom-copy {
+      font-weight: 400;
+      color: #4a4a4a;
+    }
+
+    .app-footer .footer-inner .nexroom-copy strong {
+      font-weight: 500;
+      color: #6a6a6a;
+    }
+
+    .app-footer .footer-inner .legal {
+      display: flex;
+      gap: 1.5rem;
+      color: #3a3a3a;
+    }
+
+    .app-footer .footer-inner .legal span {
+      cursor: default;
+    }
+
+    @media (max-width: 600px) {
+      .nex-card {
+        padding: 2rem 1.2rem;
+        border-radius: 2rem;
+      }
+
+      .brand-name {
+        font-size: 1.3rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        min-width: 100px;
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .app-footer .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.3rem;
+      }
+
+      .app-footer .footer-inner .legal {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand-sub {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="nex-card">
+      <div class="brand">
+        <div class="brand-icon">◆</div>
+        <div class="brand-name">nexroom</div>
+        <div class="brand-sub">placeholder</div>
+      </div>
+
+      <div class="hero">
+        <h1>Nexroom <span>placeholder</span></h1>
+        <p>interface ready · dark modern shell</p>
+      </div>
+
+      <div class="button-grid">
+        <div class="btn btn-primary">Primary action</div>
+        <div class="btn btn-outline">Secondary</div>
+        <div class="btn btn-ghost">Ghost</div>
+        <div class="btn btn-outline btn-block">Wide placeholder</div>
+        <div class="btn btn-ghost btn-block">Another action</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="footer-note">
+        <span class="nex">nexroom · v0.1</span>
+        <span class="copy">placeholder buttons</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="nexroom-copy">
+        <strong>nexroom</strong> · placeholder copyright 2026
+      </div>
+      <div class="legal">
+        <span>terms</span>
+        <span>privacy</span>
+        <span>cookies</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
