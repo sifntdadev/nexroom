@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexroom · placeholder</title>
+  <title>Nexroom</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -25,6 +25,27 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .banner-wrap {
+      width: 100%;
+      background: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .banner-wrap img {
+      max-width: 100%;
+      height: auto;
+      max-height: 90px;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      border: 1px solid #222;
+      object-fit: contain;
+      background: #0b0b0b;
+    }
+
     .app {
       flex: 1 0 auto;
       display: flex;
@@ -44,7 +65,7 @@
       padding: 3rem 2.5rem;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03);
       width: 100%;
-      max-width: 720px;
+      max-width: 640px;
       transition: box-shadow 0.2s ease;
       border: 1px solid #2a2a2a;
     }
@@ -128,71 +149,39 @@
       margin-top: 0.25rem;
     }
 
-    .button-grid {
+    .button-wrapper {
+      margin: 2.5rem 0 1.5rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin: 2rem 0 1.5rem;
-    }
-
-    .btn {
-      flex: 1 0 auto;
-      min-width: 120px;
-      background: #1d1d1d;
-      border: 1px solid #2e2e2e;
-      color: #d4d4d4;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.85rem 1.2rem;
-      border-radius: 60px;
-      cursor: default;
-      transition: all 0.15s ease;
-      text-align: center;
-      letter-spacing: 0.01em;
-      background: #1a1a1a;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+      justify-content: center;
     }
 
     .btn-primary {
       background: #2a2a2a;
-      border-color: #3d3d3d;
+      border: 1px solid #3d3d3d;
       color: #f0f0f0;
       font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      font-size: 1.1rem;
+      padding: 1rem 2.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      letter-spacing: 0.01em;
+      background: #1e1e1e;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 6px 16px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 320px;
     }
 
     .btn-primary:hover {
       background: #323232;
       border-color: #4f4f4f;
-      transform: scale(1.01);
+      transform: scale(1.02);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.7);
     }
 
-    .btn-outline {
-      background: transparent;
-      border-color: #2c2c2c;
-      color: #b0b0b0;
-    }
-
-    .btn-outline:hover {
-      background: #1f1f1f;
-      border-color: #3f3f3f;
-      color: #d0d0d0;
-    }
-
-    .btn-ghost {
-      background: #121212;
-      border-color: #222;
-      color: #888;
-    }
-
-    .btn-ghost:hover {
-      background: #1a1a1a;
-      border-color: #333;
-      color: #aaa;
-    }
-
-    .btn-block {
-      flex: 1 0 100%;
+    .btn-primary:active {
+      transform: scale(0.97);
     }
 
     .divider {
@@ -285,10 +274,10 @@
         font-size: 1.8rem;
       }
 
-      .btn {
-        min-width: 100px;
-        padding: 0.7rem 1rem;
-        font-size: 0.85rem;
+      .btn-primary {
+        font-size: 1rem;
+        padding: 0.9rem 2rem;
+        max-width: 100%;
       }
 
       .app-footer .footer-inner {
@@ -301,6 +290,10 @@
       .app-footer .footer-inner .legal {
         gap: 1rem;
       }
+
+      .banner-wrap img {
+        max-height: 60px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -311,32 +304,33 @@
   </style>
 </head>
 <body>
+
+  <div class="banner-wrap">
+    <img src="banner.png" alt="nexroom banner" onerror="this.style.display='none'">
+  </div>
+
   <div class="app">
     <div class="nex-card">
       <div class="brand">
         <div class="brand-icon">◆</div>
         <div class="brand-name">nexroom</div>
-        <div class="brand-sub">placeholder</div>
+        <div class="brand-sub">download</div>
       </div>
 
       <div class="hero">
-        <h1>Nexroom <span>placeholder</span></h1>
-        <p>interface ready · dark modern shell</p>
+        <h1>Nexroom</h1>
+        <p>dark modern shell</p>
       </div>
 
-      <div class="button-grid">
-        <div class="btn btn-primary">Primary action</div>
-        <div class="btn btn-outline">Secondary</div>
-        <div class="btn btn-ghost">Ghost</div>
-        <div class="btn btn-outline btn-block">Wide placeholder</div>
-        <div class="btn btn-ghost btn-block">Another action</div>
+      <div class="button-wrapper">
+        <button class="btn-primary" id="downloadBtn">download nexroom!</button>
       </div>
 
       <div class="divider"></div>
 
       <div class="footer-note">
         <span class="nex">nexroom · v0.1</span>
-        <span class="copy">placeholder buttons</span>
+        <span class="copy">single action</span>
       </div>
     </div>
   </div>
@@ -353,5 +347,19 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const downloadUrl = 'https://gofile.io/d/TCgj8s';
+      const btn = document.getElementById('downloadBtn');
+
+      if (btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.open(downloadUrl, '_blank');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
